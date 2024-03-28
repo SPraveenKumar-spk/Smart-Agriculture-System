@@ -1,0 +1,23 @@
+.navbar{
+    height: 4rem;
+    width: 100%;
+    background-color: #378CE7;
+    display: flex;
+    justify-content: space-between;
+}
+.logo h1{
+    color: whitesmoke;
+    padding-left: 3rem;
+    padding-top: 5px 0 5px 0;
+    font-size: 50px;
+}
+.navlinks ul{
+    display: flex;
+}
+.navlinks ul li {
+    padding: 15px 20px 15px 10px;
+}
+.navlinks ul li a{
+    color: white;
+    font-size: 25px;
+}

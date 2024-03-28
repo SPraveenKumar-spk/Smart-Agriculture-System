@@ -1,0 +1,51 @@
+.container{
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 70rem;
+    height: 73vh;
+    margin: 2.5rem 10rem 0 14rem;
+}
+.heading{
+    font-size: 30px;
+    text-align: center;
+    margin-top: 2rem;
+}
+.attributes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; 
+    padding: 15px;
+}
+
+.inputs {
+    flex: 1;
+    height: 40px;
+    width: 0px;
+    min-width: 300px;
+    border-radius: 10px;
+}
+
+.attributes label {
+    width: 10px; 
+    text-align: right; 
+    margin-right: 10px;
+    margin-left: 10px;
+    font-size: 25px;
+}
+.btn{
+   margin: 15px 50% 0 40%; 
+}
+.btn button{
+    padding: 10px;
+}
+.flower{
+    width: 200px;
+    height: 200px;
+    margin-top: 0;
+}
+.tree{
+    width: 200px;
+    height: 200px;
+    float: right;
+    margin-top: 0;
+}

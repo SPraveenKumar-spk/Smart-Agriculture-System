@@ -1,0 +1,33 @@
+.recommend{
+    display: flex;
+    justify-content: space-around;
+    height: 50vh;
+}
+.image{
+    padding: 30px;
+}
+.image img{
+    width: 600px;
+    height: 300px;
+}
+.content{
+   padding: 45px 70px 20px 70px;
+}
+.content h3{
+    font-size: 25px;
+    padding-bottom: 10px;
+}
+.content p{
+    font-size: 20px;
+}
+.btn{
+    padding: 40px;
+    display: flex;
+    justify-content: space-around;
+}
+ button{
+    padding: 15px;
+    font-size: 25px;
+    border-radius: 10px;
+    cursor: pointer;
+}
