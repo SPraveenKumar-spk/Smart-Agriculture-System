@@ -2,7 +2,6 @@ import styles from "../Styles/croprecommend.module.css";
 import Image from "../assets/trees.png";
 import Image2 from "../assets/flower.png";
 import { useState } from "react";
-import axios from "axios";
 function Croprecommend() {
   const [inputValue, setInputValues] = useState({
     nitrogen: "",
@@ -23,13 +22,18 @@ function Croprecommend() {
     event.preventDefault();
 
     try {
-      console.log(inputValue);
-      const response = await axios.post("/api/predict", inputValue);
-      setPrediction(response.data);
-    } catch (error) {
-      console.error("Prediction failed: ", error);
-      setPrediction(`An error occurred while predicting: ${error.toString()}`);
-    }
+      const response = await fetch(`http://localhost:5000/api/predict`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(inputValue),
+      });
+      if (response.ok) {
+        const predictionData = await response.json();
+        setPrediction(predictionData.crop);
+      }
+    } catch (error) {}
   };
 
   return (
@@ -133,14 +137,24 @@ function Croprecommend() {
               <button>Predict</button>
             </div>
           </form>
-          {prediction && (
+          <div className={styles.result}>
             <div>
-              <h2>Prediction:</h2>
-              <p>{prediction}</p>
+              <img className={styles.flower} src={Image2} />
             </div>
-          )}
-          <img className={styles.flower} src={Image2}></img>
-          <img className={styles.tree} src={Image}></img>
+            <div>
+              {prediction && (
+                <div>
+                  <h2>
+                    <span className={styles.span1}>Prediction</span> :{" "}
+                    <span className={styles.span2}>{prediction}</span>
+                  </h2>
+                </div>
+              )}
+            </div>
+            <div>
+              <img className={styles.tree} src={Image} />
+            </div>
+          </div>
         </div>
       </div>
     </>

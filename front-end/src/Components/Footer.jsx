@@ -3,7 +3,7 @@ function Footer() {
   return (
     <>
       <div className={styles.foot}>
-        <p>&copy; 2024 KARE. All rights reserved.</p>
+        <p>&copy; 2024 S.Praveen Kumar. All rights reserved.</p>
       </div>
     </>
   );

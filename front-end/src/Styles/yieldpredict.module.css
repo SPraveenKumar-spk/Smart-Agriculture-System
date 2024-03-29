@@ -1,9 +1,13 @@
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .container{
     border: 1px solid black;
     border-radius: 10px;
-    width: 70rem;
-    height: 78vh;
-    margin: 2.5rem 10rem 0 14rem;
+    width: 55rem;
+    height: 68vh;
 }
 .span1{
     color: #ff66cc;
@@ -25,7 +29,6 @@
 }
 
 .inputs {
-    flex: 1;
     height: 40px;
     width:100%;
     border-radius: 10px;
@@ -37,6 +40,12 @@
     margin-right: 10px;
     margin-left: 10px;
     font-size: 25px;
+}
+.choice{
+    flex: 1;
+    height: 40px;
+    width:100%;
+    border-radius: 10px;
 }
 .btn{
    margin: 15px 50% 0 40%; 

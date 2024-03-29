@@ -12,24 +12,24 @@
 .text {
   position: absolute; 
   top: 10%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* Center the text horizontally and vertically */
+  left: 47.9%;
+  transform: translate(-50%, -50%); 
   color: blue;
   font-size: 30px; 
   font-weight: bold;
-  z-index: 1; /* Ensure text appears above the image */
+  z-index: 1; 
 }
 
 .btn {
   position: absolute;
-  top: 20%; /* Adjust button's vertical position */
+  top: 20%; 
   left: 50%;
-  transform: translateX(-50%); /* Center the button horizontally */
+  transform: translateX(-50%); 
   padding: 10px 20px;
   background-color: rgba(128, 128, 128, 0.5);
   color: yellow;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  z-index: 1; /* Ensure button appears above the image */
+  z-index: 1; 
 }

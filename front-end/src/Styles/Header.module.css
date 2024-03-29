@@ -2,13 +2,14 @@
     height: 4rem;
     width: 100%;
     background-color: #378CE7;
+    position: relative;
     display: flex;
     justify-content: space-between;
 }
 .logo h1{
     color: whitesmoke;
     padding-left: 3rem;
-    padding-top: 5px 0 5px 0;
+    padding-top: 5px ;
     font-size: 50px;
 }
 .navlinks ul{
