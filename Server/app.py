@@ -44,9 +44,10 @@ def get_data():
 
 def fertirecommend(Temparature,Humidity,Moisture,Soil_Type,Crop_Type,Nitrogen,Potassium,Phosphorous):
     features=np.array([[Temparature,Humidity,Moisture,Soil_Type,Crop_Type,Nitrogen,Potassium,Phosphorous]])
-    print(features)
-    features[4] = encoder.fit_transform(features[4])
-    print(features)
+    features[0][3] = encoder.fit_transform(features[0][3])
+    print(features[0][3])
+    # features[4] = encoder.fit_transform(features[4])
+    # print(features)
     prediction=Fertimodel.predict(features)
     return prediction[0]
 
@@ -54,19 +55,14 @@ def fertirecommend(Temparature,Humidity,Moisture,Soil_Type,Crop_Type,Nitrogen,Po
 def fertilizer():
     try:
         data = request.json
-        # print(data)
-        # soil = data.get('soil')
-        # soil_encoded = encoder.transform([soil])[0]  # Convert soil text to numerical
-        # data['soil'] = soil_encoded
-        # print(data['soil'])
-        # data['crop']=encoder.fit_transform(data['crop'])
-        # print(data)
+        text = data['soil']
+        print(text)
+        text_input = text
+        encoded_value =encoder.transform([text_input])[0]
+        print(encoded_value)
         feature_values = []
         for value in data.values():
             feature_values.append(value)
-        print(feature_values)
-        # feature_values = [data.get('temperature'), data.get('humidity'), data.get('potassium'),
-        #                     data.get('moisture'), data.get('soil'), data.get('crop'), data.get('nitrogen'),data.get("potassium"),data.get("phosphorous")]
         prediction = fertirecommend(*feature_values)
         fertilizer_dict = {0:'10-26-26 ',1:'14-35-14',2:'17-17-17',3:'20-20 ',4:'28-28',5:'DAP ',6:'Urea'}
         print(prediction)
