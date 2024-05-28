@@ -1,7 +1,6 @@
 import styles from "../Styles/croprecommend.module.css";
-import Image from "../assets/trees.png";
-import Image2 from "../assets/flower.png";
 import { useState } from "react";
+
 function Croprecommend() {
   const [inputValue, setInputValues] = useState({
     nitrogen: "",
@@ -15,12 +14,12 @@ function Croprecommend() {
   const [prediction, setPrediction] = useState("");
 
   const handleInputChange = (e) => {
-    setInputValues({ ...inputValue, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setInputValues({ ...inputValue, [name]: value });
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     try {
       const response = await fetch(`http://localhost:5000/api/predict`, {
         method: "POST",
@@ -33,131 +32,157 @@ function Croprecommend() {
         const predictionData = await response.json();
         setPrediction(predictionData.crop);
       }
-    } catch (error) {}
+    } catch (error) {
+      console.error("Error fetching prediction:", error);
+    }
   };
 
   return (
-    <>
-      <div>
+    <div className={styles.main}>
+      <div className={styles.container}>
         <h1 className={styles.heading}>Crop Recommendation System</h1>
-        <div className={styles.container}>
-          <form className={styles.attributes} onSubmit={handleSubmit}>
-            <div>
-              <label htmlFor="nitrogen">Nitrogen : </label>
+        <form onSubmit={handleSubmit}>
+          <div className="row">
+            <div className="col-md-4">
+              <label htmlFor="nitrogen" style={{ fontWeight: "bold" }}>
+                Nitrogen
+              </label>
               <input
-                className={styles.inputs}
-                type="text"
-                value={inputValue.nitrogen || ""}
-                onChange={handleInputChange}
-                name="nitrogen"
+                type="number"
                 id="nitrogen"
-                placeholder="Enter nitrogen value"
-                required
-              ></input>
-            </div>
-            <div>
-              <label htmlFor="phosphorous">Phosphorous : </label>
-              <input
-                className={styles.inputs}
-                type="text"
-                value={inputValue.phosphorous || ""}
+                name="nitrogen"
+                placeholder="Enter Nitrogen"
+                className="form-control"
+                value={inputValue.nitrogen}
                 onChange={handleInputChange}
-                name="phosphorous"
+                required
+              />
+            </div>
+            <div className="col-md-4">
+              <label htmlFor="phosphorous" style={{ fontWeight: "bold" }}>
+                Phosphorus
+              </label>
+              <input
+                type="number"
                 id="phosphorous"
-                placeholder="Enter phosphorous value"
-                required
-              ></input>
-            </div>
-            <div>
-              <label htmlFor="potassium">Potassium : </label>
-              <input
-                className={styles.inputs}
-                type="text"
-                value={inputValue.potassium || ""}
+                name="phosphorous"
+                placeholder="Enter Phosphorus"
+                className="form-control"
+                value={inputValue.phosphorous}
                 onChange={handleInputChange}
-                name="potassium"
+                required
+              />
+            </div>
+            <div className="col-md-4">
+              <label htmlFor="potassium" style={{ fontWeight: "bold" }}>
+                Potassium
+              </label>
+              <input
+                type="number"
                 id="potassium"
-                placeholder="Enter potassium value"
-                required
-              ></input>
-            </div>
-            <div>
-              <label htmlFor="temperature">Temperature : </label>
-              <input
-                className={styles.inputs}
-                type="text"
-                value={inputValue.temperature || ""}
+                name="potassium"
+                placeholder="Enter Potassium"
+                className="form-control"
+                value={inputValue.potassium}
                 onChange={handleInputChange}
-                name="temperature"
-                id="temperature"
-                placeholder="Enter temperature value"
                 required
-              ></input>
-            </div>
-            <div>
-              <label htmlFor="humidity">Humidity : </label>
-              <input
-                className={styles.inputs}
-                type="text"
-                value={inputValue.humidity || ""}
-                onChange={handleInputChange}
-                name="humidity"
-                id="humidity"
-                placeholder="Enter humidity value"
-                required
-              ></input>
-            </div>
-            <div>
-              <label htmlFor="ph">Ph Value : </label>
-              <input
-                className={styles.inputs}
-                type="text"
-                value={inputValue.ph || ""}
-                onChange={handleInputChange}
-                name="ph"
-                id="ph"
-                placeholder="Enter ph value"
-                required
-              ></input>
-            </div>
-            <div>
-              <label htmlFor="rainfall">Rainfall : </label>
-              <input
-                className={styles.inputs}
-                type="text"
-                value={inputValue.rainfall || ""}
-                onChange={handleInputChange}
-                name="rainfall"
-                id="rainfall"
-                placeholder="Enter rainfall value"
-                required
-              ></input>
-            </div>
-            <div className={styles.btn}>
-              <button>Predict</button>
-            </div>
-          </form>
-          <div className={styles.result}>
-            <div>
-              <img className={styles.flower} src={Image2} />
-            </div>
-            <div>
-              {prediction && (
-                <div>
-                  <h2>
-                    <span className={styles.span1}>Prediction</span> :{" "}
-                    <span className={styles.span2}>{prediction}</span>
-                  </h2>
-                </div>
-              )}
-            </div>
-            <div>
-              <img className={styles.tree} src={Image} />
+              />
             </div>
           </div>
+
+          <div className="row mt-4">
+            <div className="col-md-4">
+              <label htmlFor="temperature" style={{ fontWeight: "bold" }}>
+                Temperature
+              </label>
+              <input
+                type="number"
+                step="0.01"
+                id="temperature"
+                name="temperature"
+                placeholder="Enter Temperature in °C"
+                className="form-control"
+                value={inputValue.temperature}
+                onChange={handleInputChange}
+                required
+              />
+            </div>
+            <div className="col-md-4">
+              <label htmlFor="humidity" style={{ fontWeight: "bold" }}>
+                Humidity
+              </label>
+              <input
+                type="number"
+                step="0.01"
+                id="humidity"
+                name="humidity"
+                placeholder="Enter Humidity in %"
+                className="form-control"
+                value={inputValue.humidity}
+                onChange={handleInputChange}
+                required
+              />
+            </div>
+            <div className="col-md-4">
+              <label htmlFor="ph" style={{ fontWeight: "bold" }}>
+                pH
+              </label>
+              <input
+                type="number"
+                step="0.01"
+                id="ph"
+                name="ph"
+                placeholder="Enter pH value"
+                className="form-control"
+                value={inputValue.ph}
+                onChange={handleInputChange}
+                required
+              />
+            </div>
+          </div>
+
+          <div className="row mt-4">
+            <div className="col-md-4">
+              <label htmlFor="rainfall" style={{ fontWeight: "bold" }}>
+                Rainfall
+              </label>
+              <input
+                type="number"
+                step="0.01"
+                id="rainfall"
+                name="rainfall"
+                placeholder="Enter Rainfall in mm"
+                className="form-control"
+                value={inputValue.rainfall}
+                onChange={handleInputChange}
+                required
+              />
+            </div>
+          </div>
+
+          <div className="row mt-4">
+            <div className={styles.custombtn}>
+              <button
+                type="submit"
+                className="btn btn-primary btn-lg align-center"
+              >
+                Get Recommendation
+              </button>
+            </div>
+          </div>
+        </form>
+        <div className={styles.result}>
+          {prediction && (
+            <div>
+              <h2>
+                <span className={styles.span1}>Prediction</span> :{" "}
+                <span className={styles.span2}>{prediction}</span>
+              </h2>
+            </div>
+          )}
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

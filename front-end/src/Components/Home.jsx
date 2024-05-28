@@ -4,6 +4,8 @@ import Crop from "./Crop";
 import Fertilizer from "./Fertilizer";
 import Yield from "./Yield";
 import Footer from "./Footer";
+import SeedQuality from "./SeedQuality";
+import CropDisease from "./CropDisease";
 function Home() {
   return (
     <>
@@ -12,6 +14,8 @@ function Home() {
         <Hero></Hero>
         <Crop />
         <Fertilizer />
+        <SeedQuality />
+        <CropDisease />
         <Yield />
         <Footer />
       </div>

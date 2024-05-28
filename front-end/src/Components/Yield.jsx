@@ -1,14 +1,13 @@
-import styles from "../Styles/Yield.module.css";
 import { NavLink } from "react-router-dom";
 import Image from "../assets/yield.jpg";
 function Yield() {
   return (
     <>
-      <div className={styles.container}>
-        <div className={styles.image}>
+      <div className="container">
+        <div className="image">
           <img src={Image} />
         </div>
-        <div className={styles.content}>
+        <div className="content">
           <h3>Yield Prediction</h3>
           <p>
             A yield prediction system for websites utilizes historical
@@ -18,7 +17,7 @@ function Yield() {
             resource allocation, and market planning, ultimately optimizing
             agricultural productivity and profitability.
           </p>
-          <div className={styles.btn}>
+          <div className="btn">
             <div>
               <NavLink to="/yieldpredict">
                 <button>Predict Now</button>

@@ -1,14 +1,13 @@
-import styles from "../Styles/Header.module.css";
 function Header() {
   return (
     <>
-      <div className={styles.navbar}>
-        <div className={styles.logo}>
+      <div className="navbar">
+        <div className="logo">
           {" "}
           <h1>AgriSmart</h1>
         </div>
 
-        <div className={styles.navlinks}>
+        <div className="navlinks">
           <ul>
             <li>
               <a href="#">Home</a>

@@ -1,20 +1,21 @@
-import Image from "../assets/cropimage.jpeg";
+import Image from "../assets/seedQuality.jpg";
 import { NavLink } from "react-router-dom";
-function Crop() {
+export default function SeedQuality() {
   return (
     <>
+      {" "}
       <div className="container">
         <div className="image">
           <img src={Image} />
         </div>
         <div className="content">
-          <h3>Crop Recommendation</h3>
+          <h3>Seed Quality Detection</h3>
           <p>
-            A crop recommendation system for websites utilizes data analytics
-            and machine learning algorithms to suggest optimal crop choices
-            based on factors such as soil quality, climate conditions, and
-            historical yield data, enabling farmers to make informed decisions
-            for maximizing agricultural productivity and sustainability.
+            Seed quality detection involves assessing the viability, purity, and
+            health of seeds using techniques like genetic analysis, imaging, and
+            machine learning. This ensures that only the best seeds are used for
+            planting, leading to higher germination rates, better crop yields,
+            and reduced risk of disease.
           </p>
           <div className="btn">
             <div>
@@ -34,5 +35,3 @@ function Crop() {
     </>
   );
 }
-
-export default Crop;

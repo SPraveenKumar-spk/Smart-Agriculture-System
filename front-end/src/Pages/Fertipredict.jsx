@@ -1,7 +1,8 @@
-import styles from "../Styles/Fertipredic.module.css";
+import styles from "../Styles/Fertipredict.module.css";
 import Image from "../assets/fertimage2.png";
 import Image2 from "../assets/fertiimage2.png";
 import { useState } from "react";
+
 function Fertipredict() {
   const [inputValue, setInputValues] = useState({
     temperature: "",
@@ -35,61 +36,74 @@ function Fertipredict() {
         const predictionData = await response.json();
         setPrediction(predictionData.fertilizer);
       }
-    } catch (error) {}
+    } catch (error) {
+      console.error("Error fetching prediction:", error);
+    }
   };
 
   return (
-    <>
-      <div>
+    <div className={styles.main}>
+      <div className={styles.container}>
         <h1 className={styles.heading}>Fertilizer Recommendation System</h1>
-        <div className={styles.container}>
-          <form className={styles.attributes} onSubmit={handleSubmit}>
-            <div>
-              <label htmlFor="temperature">Temperature : </label>
+        <form onSubmit={handleSubmit}>
+          <div className="row">
+            <div className="col-md-4">
+              <label htmlFor="temperature" style={{ fontWeight: "bold" }}>
+                Temperature
+              </label>
               <input
-                className={styles.inputs}
-                type="text"
-                value={inputValue.temperature || ""}
-                onChange={handleInputChange}
-                name="temperature"
+                type="number"
                 id="temperature"
-                placeholder="Enter temperature value"
-                required
-              ></input>
-            </div>
-            <div>
-              <label htmlFor="humidity">Humidity : </label>
-              <input
-                className={styles.inputs}
-                type="text"
-                value={inputValue.humidity || ""}
+                name="temperature"
+                placeholder="Enter Temperature in °C"
+                className="form-control"
+                value={inputValue.temperature}
                 onChange={handleInputChange}
-                name="humidity"
+                required
+              />
+            </div>
+            <div className="col-md-4">
+              <label htmlFor="humidity" style={{ fontWeight: "bold" }}>
+                Humidity
+              </label>
+              <input
+                type="number"
                 id="humidity"
-                placeholder="Enter humidity value"
-                required
-              ></input>
-            </div>
-            <div>
-              <label htmlFor="moisture">Moisture : </label>
-              <input
-                className={styles.inputs}
-                type="text"
-                value={inputValue.moisture || ""}
+                name="humidity"
+                placeholder="Enter Humidity in %"
+                className="form-control"
+                value={inputValue.humidity}
                 onChange={handleInputChange}
-                name="moisture"
-                id="moisture"
-                placeholder="Enter moisture value"
                 required
-              ></input>
+              />
             </div>
-            <div>
-              <label htmlFor="soil">Soil Type</label>
+            <div className="col-md-4">
+              <label htmlFor="moisture" style={{ fontWeight: "bold" }}>
+                Moisture
+              </label>
+              <input
+                type="number"
+                id="moisture"
+                name="moisture"
+                placeholder="Enter Moisture"
+                className="form-control"
+                value={inputValue.moisture}
+                onChange={handleInputChange}
+                required
+              />
+            </div>
+
+            <div className="col-md-4">
+              <label htmlFor="soil" style={{ fontWeight: "bold" }}>
+                Soil Type
+              </label>
               <select
-                className={styles.choice}
+                className="form-control"
                 id="soil"
                 name="soil"
                 onChange={handleInputChange}
+                value={inputValue.soil}
+                required
               >
                 <option value="">Select Soil Type</option>
                 <option value="Sandy">Sandy</option>
@@ -99,13 +113,17 @@ function Fertipredict() {
                 <option value="Clayey">Clayey</option>
               </select>
             </div>
-            <div>
-              <label htmlFor="crop">Crop Type</label>
+            <div className="col-md-4">
+              <label htmlFor="crop" style={{ fontWeight: "bold" }}>
+                Crop Type
+              </label>
               <select
-                className={styles.choice}
+                className="form-control"
                 id="crop"
                 name="crop"
                 onChange={handleInputChange}
+                value={inputValue.crop}
+                required
               >
                 <option value="">Select a crop</option>
                 <option value="Maize">Maize</option>
@@ -120,70 +138,77 @@ function Fertipredict() {
                 <option value="Ground Nuts">Ground Nuts</option>
               </select>
             </div>
-            <div>
-              <label htmlFor="nitrogen">Nitrogen : </label>
+
+            <div className="col-md-4">
+              <label htmlFor="nitrogen" style={{ fontWeight: "bold" }}>
+                Nitrogen
+              </label>
               <input
-                className={styles.inputs}
-                type="text"
-                value={inputValue.nitrogen || ""}
-                onChange={handleInputChange}
-                name="nitrogen"
+                type="number"
                 id="nitrogen"
-                placeholder="Enter nitrogen value"
-                required
-              ></input>
-            </div>
-            <div>
-              <label htmlFor="potassium">Potassium : </label>
-              <input
-                className={styles.inputs}
-                type="text"
-                value={inputValue.potassium || ""}
+                name="nitrogen"
+                placeholder="Enter Nitrogen"
+                className="form-control"
+                value={inputValue.nitrogen}
                 onChange={handleInputChange}
-                name="potassium"
+                required
+              />
+            </div>
+            <div className="col-md-4">
+              <label htmlFor="potassium" style={{ fontWeight: "bold" }}>
+                Potassium
+              </label>
+              <input
+                type="number"
                 id="potassium"
-                placeholder="Enter potassium value"
-                required
-              ></input>
-            </div>
-            <div>
-              <label htmlFor="phosphorous">Phosphorous : </label>
-              <input
-                className={styles.inputs}
-                type="text"
-                value={inputValue.phosphorous || ""}
+                name="potassium"
+                placeholder="Enter Potassium"
+                className="form-control"
+                value={inputValue.potassium}
                 onChange={handleInputChange}
-                name="phosphorous"
-                id="phosphorous"
-                placeholder="Enter phosphorous value"
                 required
-              ></input>
+              />
             </div>
-            <div className={styles.btn}>
-              <button>Predict</button>
+            <div className="col-md-4">
+              <label htmlFor="phosphorous" style={{ fontWeight: "bold" }}>
+                Phosphorus
+              </label>
+              <input
+                type="number"
+                id="phosphorous"
+                name="phosphorous"
+                placeholder="Enter Phosphorus"
+                className="form-control"
+                value={inputValue.phosphorous}
+                onChange={handleInputChange}
+                required
+              />
             </div>
-          </form>
-          <div className={styles.result}>
-            <div>
-              <img className={styles.flower} src={Image2} />
-            </div>
-            <div>
-              {prediction && (
-                <div>
-                  <h2>
-                    <span className={styles.span1}>Prediction</span> :{" "}
-                    <span className={styles.span2}>{prediction}</span>
-                  </h2>
-                </div>
-              )}
-            </div>
-            <div>
-              <img className={styles.tree} src={Image} />
+
+            <div className="row mt-4">
+              <div className={styles.custombtn}>
+                <button
+                  type="submit"
+                  className="btn btn-primary btn-lg align-center"
+                >
+                  Predict
+                </button>
+              </div>
             </div>
           </div>
+        </form>
+        <div className={styles.result}>
+          {prediction && (
+            <div>
+              <h2>
+                <span className={styles.span1}>Prediction</span> :{" "}
+                <span className={styles.span2}>{prediction}</span>
+              </h2>
+            </div>
+          )}
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
