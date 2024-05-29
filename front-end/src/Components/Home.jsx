@@ -13,8 +13,8 @@ function Home() {
         <Header></Header>
         <Hero></Hero>
         <Crop />
-        <Fertilizer />
         <SeedQuality />
+        <Fertilizer />
         <CropDisease />
         <Yield />
         <Footer />

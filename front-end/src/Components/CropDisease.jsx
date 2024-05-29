@@ -16,7 +16,7 @@ export default function CropDisease() {
             include the use of drones and smartphones for real-time monitoring
             and analysis.
           </p>
-          <div className="btn">
+          <div className="custombtn">
             <div>
               <NavLink to="/croprecommend">
                 <button>Predict Now</button>

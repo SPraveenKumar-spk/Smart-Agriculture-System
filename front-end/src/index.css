@@ -17,27 +17,36 @@ body{
   background-color: #378CE7;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+}
+.logo{
+  text-align: center;
 }
 .logo h1{
   color: whitesmoke;
   padding-left: 3rem;
   text-align: center;
-  font-size: 50px;
+  font-size: 40px;
 }
 .navlinks ul{
   display: flex;
   justify-content: center;
+  margin-right: 5rem;
 }
 .navlinks ul li a{
   color: white;
   text-align: center;
-  margin-right:20px ;
-  padding-left: 30px;
+  margin: 10px;
   font-size: 25px;
   text-decoration: none;
 }
 
+.navlinks ul li a:hover{
+  color: orange;
+  background-color: white;
+  border-radius: 10px;
+  scale: 1;
+  font-weight: bold;
+}
 h3{
   color: #5356FF;
   font-size: 25px;
@@ -67,15 +76,26 @@ h3{
 .content p{
   font-size: 20px;
 }
-.btn{
+.custombtn{
   display: flex;
   justify-content: space-around;
 }
-button{
+
+.custombtn button{
   padding: 8px;
   border-radius: 10px;
+  border: 1px solid black;
+
   cursor: pointer;
   font-size:18px ;
+}
+.custombtn button:hover{
+  background: linear-gradient(to right,#3cd3ad,#4cb8c4);
+  transform: translateY(-10px);
+  box-shadow: 0px 0px 20px #5356FF;
+  color: white;
+  font-weight: bold;
+  scale: 1;
 }
 
 .foot{

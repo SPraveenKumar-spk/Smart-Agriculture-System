@@ -4,6 +4,9 @@ function Fertilizer() {
   return (
     <>
       <div className="container">
+        <div className="image">
+          <img src={Image1} />
+        </div>
         <div className="content">
           <h3>Fertilizer Recommendation</h3>
           <p>
@@ -14,7 +17,7 @@ function Fertilizer() {
             farmers to enhance crop yields and minimize environmental impact
             through efficient nutrient management.
           </p>
-          <div className="btn">
+          <div className="custombtn">
             <div>
               <NavLink to="/fertipredict">
                 <button>Predict Now</button>
@@ -27,9 +30,6 @@ function Fertilizer() {
               </NavLink>
             </div>
           </div>
-        </div>
-        <div className="image">
-          <img src={Image1} />
         </div>
       </div>
     </>

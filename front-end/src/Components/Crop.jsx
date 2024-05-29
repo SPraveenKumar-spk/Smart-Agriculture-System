@@ -16,7 +16,7 @@ function Crop() {
             historical yield data, enabling farmers to make informed decisions
             for maximizing agricultural productivity and sustainability.
           </p>
-          <div className="btn">
+          <div className="custombtn">
             <div>
               <NavLink to="/croprecommend">
                 <button>Predict Now</button>

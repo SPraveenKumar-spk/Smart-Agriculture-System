@@ -5,9 +5,6 @@ export default function SeedQuality() {
     <>
       {" "}
       <div className="container">
-        <div className="image">
-          <img src={Image} />
-        </div>
         <div className="content">
           <h3>Seed Quality Detection</h3>
           <p>
@@ -17,7 +14,7 @@ export default function SeedQuality() {
             planting, leading to higher germination rates, better crop yields,
             and reduced risk of disease.
           </p>
-          <div className="btn">
+          <div className="custombtn">
             <div>
               <NavLink to="/croprecommend">
                 <button>Predict Now</button>
@@ -30,6 +27,9 @@ export default function SeedQuality() {
               </NavLink>
             </div>
           </div>
+        </div>
+        <div className="image">
+          <img src={Image} />
         </div>
       </div>
     </>

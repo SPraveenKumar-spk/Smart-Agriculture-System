@@ -17,7 +17,7 @@ function Yield() {
             resource allocation, and market planning, ultimately optimizing
             agricultural productivity and profitability.
           </p>
-          <div className="btn">
+          <div className="custombtn">
             <div>
               <NavLink to="/yieldpredict">
                 <button>Predict Now</button>
