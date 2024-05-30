@@ -29,11 +29,16 @@ AgriSmart includes features to support farmers with information on:
 
 Government Subsidies: Updates on available subsidies and assistance programs to support farmers financially.
 Modern Cultivation Techniques: Guidance on adopting the latest agricultural practices to improve productivity and sustainability.
+
 # Benefits
-Enhanced Productivity: By providing accurate recommendations and predictions, AgriSmart helps farmers maximize their crop yields.
-Sustainability: Optimized use of resources and modern techniques contribute to sustainable farming practices.
-Economic Support: Information on government subsidies and financial programs aids farmers in reducing costs and improving profitability.
-Risk Management: Early disease detection and yield forecasting enable farmers to manage risks effectively.
+1. Enhanced Productivity: By providing accurate recommendations and predictions, AgriSmart helps farmers maximize their crop yields.
+
+2. Sustainability: Optimized use of resources and modern techniques contribute to sustainable farming practices.
+
+3. Economic Support: Information on government subsidies and financial programs aids farmers in reducing costs and improving profitability.
+
+4. Risk Management: Early disease detection and yield forecasting enable farmers to manage risks effectively.
+
 # How to Use
 1. Crop Recommendation: Input soil data and weather conditions to receive crop suggestions.
 
